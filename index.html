@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./bootstrap-5.2.2-dist/bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light" style="height: 80px;">
+    <a class="navbar-brand ps-3" href="#">
+        <img src="eksulogo.jpeg" alt="Logo" width="100" height="70">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">How to calculate CGPA</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Donation</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+  <div class="calculator">
+    <h1>CGPA Calculator</h1>
+    
+    <form id="cgpaForm">
+        <div class="header-row">
+            <div>Course</div>
+            <div>Course Unit</div>
+            <div>Grade</div>
+            <div>Action</div>
+        </div>
+
+        <!-- Initial row -->
+        <div class="form-row">
+          <input type="text" id="courseForm" name="course[]" placeholder="POS 108">
+          <select name="unit[]">
+            <option value="Unit">Unit</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+          </select>
+          <select name="grade[]">
+            <option value="Grade">Grade</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+          </select>
+          <!-- Add hidden input for grade value -->
+          <input type="hidden" name="gradeValue[]" value="">
+          <button type="button" onclick="deleteRow(this)" style="border-radius: 20px;">Delete</button>
+        </div>
+
+        <!-- Generated input fields will be placed here -->
+        <div id="generatedInputs"></div>
+
+        <button type="button" id="addCourseButton" onclick="addCourseRow()" style="border-radius: 7px;">+</button>
+
+        
+
+        <button type="button" id="calculateCGPAButton" onclick="calculateCGPA()" style="border-radius: 15px;">Calculate CGPA</button>
+
+          <div class="output-div">
+            <div id="result" style="color: #c82333;"></div>
+            <div id="gradeMessage" style="padding-top: 20px; color: #c82333;"></div>
+          </div>
+        
+
+    </form>
+</div>
+
+    <script src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
